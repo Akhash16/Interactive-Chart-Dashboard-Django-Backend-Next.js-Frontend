@@ -10,6 +10,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expose the port Django runs on
+WORKDIR /app/ 
 EXPOSE 8000
 
 # Run Django development server

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-i&xo6q5o*gl$^i*)3k877(n5a570y$&qbn974(ezxp9da*nk1h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -54,13 +54,13 @@ MIDDLEWARE = [
 ]
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # For development only!
+CORS_ALLOW_ALL_ORIGINS = False  # For development only!
 
 # For production, specify allowed origins:
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
 
 ROOT_URLCONF = 'chart_backend.urls'
 
