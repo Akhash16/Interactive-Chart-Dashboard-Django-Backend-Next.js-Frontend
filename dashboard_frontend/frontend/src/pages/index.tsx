@@ -12,12 +12,36 @@ const CandlestickChart = dynamic(() => import('../components/CandlestickChart'),
   ssr: false
 });
 
-interface ChartData {
-  candlestick: any;
-  line: any;
-  bar: any;
-  pie: any;
+interface CandlestickData {
+  x: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
 }
+
+interface LineChartData {
+  labels: string[];
+  data: number[];
+}
+
+interface BarChartData {
+  labels: string[];
+  data: number[];
+}
+
+interface PieChartData {
+  labels: string[];
+  data: number[];
+}
+
+interface ChartData {
+  candlestick: CandlestickData[] | null;
+  line: LineChartData | null;
+  bar: BarChartData | null;
+  pie: PieChartData | null;
+}
+
 
 export default function Dashboard() {
   const [chartData, setChartData] = useState<ChartData>({
@@ -33,17 +57,26 @@ export default function Dashboard() {
     const fetchData = async () => {
       try {
         const [candlestick, line, bar, pie] = await Promise.all([
-          axios.get('http://localhost:8000/api/candlestick-data/'),
-          axios.get('http://localhost:8000/api/line-chart-data/'),
-          axios.get('http://localhost:8000/api/bar-chart-data/'),
-          axios.get('http://localhost:8000/api/pie-chart-data/'),
+          axios.get('/api/candlestick-data'),
+          axios.get('/api/line-chart-data'),
+          axios.get('/api/bar-chart-data'),
+          axios.get('/api/pie-chart-data'),
         ]);
 
         setChartData({
-          candlestick: candlestick.data,
-          line: line.data,
-          bar: bar.data,
-          pie: pie.data,
+          candlestick: candlestick.data.data, // Directly assign array
+          line: {
+            labels: line.data.labels,
+            data: line.data.data,
+          },
+          bar: {
+            labels: bar.data.labels,
+            data: bar.data.data,
+          },
+          pie: {
+            labels: pie.data.labels,
+            data: pie.data.data,
+          },
         });
         setLoading(false);
       } catch (error) {

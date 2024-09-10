@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./dashboard_frontend/frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./chart_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1  # Enable Django debugging
+
+  

@@ -7,6 +7,10 @@ def candlestick_data(request):
         "data": [
             {"x": "2023-01-01", "open": 30, "high": 50, "low": 20, "close": 35},
             {"x": "2023-01-02", "open": 35, "high": 45, "low": 10, "close": 20},
+            {"x": "2023-01-03", "open": 40, "high": 50, "low": 20, "close": 35},
+            {"x": "2023-01-04", "open": 45, "high": 45, "low": 10, "close": 20},
+            {"x": "2023-01-05", "open": 50, "high": 50, "low": 20, "close": 35},
+            {"x": "2023-01-06", "open": 65, "high": 95, "low": 10, "close": 80},
         ]
     }
     return Response(data)
@@ -15,7 +19,7 @@ def candlestick_data(request):
 def line_chart_data(request):
     data = {
         "labels": ["Jan", "Feb", "Mar", "Apr"],
-        "data": [10, 20, 30, 40]
+        "data": [10, 20, 30, 400]
     }
     return Response(data)
 
@@ -23,7 +27,7 @@ def line_chart_data(request):
 def bar_chart_data(request):
     data = {
         "labels": ["Product A", "Product B", "Product C"],
-        "data": [100, 150, 200]
+        "data": [100, 150, 2000]
     }
     return Response(data)
 
