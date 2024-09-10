@@ -1,17 +1,17 @@
+// src/store/slices/chartSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from './types';
+import { ChartState } from './types'; // Import the correct type for the slice state
 import { fetchChartData } from './actions';
 
-const initialState: RootState = {
-    chartData: {
-        candlestick: null,
-        line: null,
-        bar: null,
-        pie: null,
-    },
-    loading: false,
-    error: null,
-    chart: undefined
+const initialState: ChartState = {
+  chartData: {
+    candlestick: null,
+    line: null,
+    bar: null,
+    pie: null,
+  },
+  loading: false,
+  error: null,
 };
 
 const chartSlice = createSlice({

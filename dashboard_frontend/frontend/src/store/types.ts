@@ -28,10 +28,14 @@ export interface CandlestickData {
     pie: PieChartData | null;
   }
   
-  export interface RootState {
-    chart: any;
+// State for the chart slice
+export interface ChartState {
     chartData: ChartData;
     loading: boolean;
     error: string | null;
   }
   
+  // RootState that includes the chart state
+  export interface RootState {
+    chart: ChartState;
+  }

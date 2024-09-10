@@ -5,11 +5,12 @@ from rest_framework.response import Response
 def candlestick_data(request):
     data = {
         "data": [
-  {"x": "2024-09-01", "open": 45, "high": 65, "low": 40, "close": 50},
-  {"x": "2024-09-02", "open": 50, "high": 60, "low": 48, "close": 58},
-  {"x": "2024-09-03", "open": 58, "high": 62, "low": 30, "close": 46},
-  {"x": "2024-09-04", "open": 46, "high": 65, "low": 25, "close": 63},
-  {"x": "2024-09-05", "open": 63, "high": 70, "low": 60, "close": 68}
+{"x": "2023-01-01", "open": 30, "high": 60, "low": 15, "close": 45},
+{"x": "2023-01-02", "open": 35, "high": 55, "low": 20, "close": 40},
+{"x": "2023-01-03", "open": 40, "high": 60, "low": 20, "close": 55},
+{"x": "2023-01-04", "open": 55, "high": 75, "low": 20, "close": 30},
+{"x": "2023-01-05", "open": 30, "high": 40, "low": 25, "close": 35},
+{"x": "2023-01-06", "open": 35, "high": 55, "low": 20, "close": 40},
 ]
 
     }

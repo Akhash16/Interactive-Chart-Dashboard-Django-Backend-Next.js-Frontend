@@ -28,7 +28,7 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data }) => {
     const options: ApexCharts.ApexOptions = {
       chart: {
         type: 'candlestick',
-        height: 350,
+        height: 300,
         zoom: {
           enabled: true,
         },
@@ -66,7 +66,7 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data }) => {
           text: 'Price',
         },
         min: 0,        // Set minimum value for the y-axis
-      max: 100,      // Set maximum value for the y-axis
+      max: 80,      // Set maximum value for the y-axis
       tickAmount: 5,
       },
       plotOptions: {
