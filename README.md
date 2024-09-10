@@ -1,6 +1,6 @@
 # Chart Application
 
-This repository contains a Django backend and a Next.js frontend. Follow the instructions below to set up and run both the backend and frontend locally without Docker.
+This Project contains a Django backend and a Next.js frontend. Follow the instructions below to set up and run both the backend and frontend locally.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ Before getting started, ensure that you have the following installed:
 
 ## Getting Started
 
-### 1. Open Source Code
+### 1. Setting up Backend
 
 ```bash
 cd chart-backend
@@ -23,10 +23,11 @@ pip install -r requirements.txt
 python manage.py runserver
 ``` 
 
-### 2. Open Source Code
+### 2. Setting up Frontend
 
 ```bash
-cd chart-frontend
+cd dashboard-frontend
+cd frontend
 npm install
 npm run build
 npm run start
