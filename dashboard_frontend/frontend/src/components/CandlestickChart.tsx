@@ -13,9 +13,6 @@ interface CandlestickChartProps {
 
 }
 
-
-
-
 const CandlestickChart: React.FC<CandlestickChartProps> = ({ data }) => {
 
 
@@ -114,8 +111,6 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data }) => {
       data: chartData,
     },
   ];
-
-
 
   return (
     <div>
