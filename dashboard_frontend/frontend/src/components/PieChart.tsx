@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart as RechartsPie, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart as RechartsPie, Pie, Tooltip, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 interface PieChartProps {
   data: {
@@ -32,7 +32,16 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
           <Cell key={`cell-${index}`} fill={entry.color} />
         ))}
       </Pie>
-      <Tooltip />
+      <Tooltip
+          contentStyle={{ backgroundColor: '#333', borderColor: '#555' }}
+          labelStyle={{ color: '#fff' }}
+          itemStyle={{ color: '#fff' }}
+        />
+        <Legend
+          wrapperStyle={{ bottom: 0, left: '50%', marginRight: -40 }}
+          layout="vertical"
+          verticalAlign="middle"
+        />
     </RechartsPie>
     </ResponsiveContainer>
   );
