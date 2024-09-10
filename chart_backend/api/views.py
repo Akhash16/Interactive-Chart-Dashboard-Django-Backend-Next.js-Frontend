@@ -5,8 +5,8 @@ from rest_framework.response import Response
 def candlestick_data(request):
     data = {
         "data": [
-            {"x": "2023-01-01", "open": 30, "high": 40, "low": 25, "close": 35},
-            {"x": "2023-01-02", "open": 35, "high": 45, "low": 30, "close": 40},
+            {"x": "2023-01-01", "open": 30, "high": 50, "low": 20, "close": 35},
+            {"x": "2023-01-02", "open": 35, "high": 45, "low": 10, "close": 20},
         ]
     }
     return Response(data)
@@ -30,7 +30,7 @@ def bar_chart_data(request):
 @api_view(['GET'])
 def pie_chart_data(request):
     data = {
-        "labels": ["Red", "Blue", "Yellow"],
+        "labels": ["Green", "Blue", "Yellow"],
         "data": [300, 50, 100]
     }
     return Response(data)
