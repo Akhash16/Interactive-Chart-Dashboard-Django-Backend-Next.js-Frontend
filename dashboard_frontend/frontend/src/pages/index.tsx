@@ -1,93 +1,25 @@
 // src/pages/index.tsx
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-// import CandlestickChart from '../components/CandlestickChart';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import dynamic from 'next/dynamic';
+import { AppDispatch } from '../store/store';
+import { RootState } from '../store/types';
+import { fetchChartData } from '../store/actions';
 import LineChart from '../components/LineChart';
 import BarChart from '../components/BarChart';
 import PieChart from '../components/PieChart';
-
-import dynamic from 'next/dynamic';
 
 const CandlestickChart = dynamic(() => import('../components/CandlestickChart'), {
   ssr: false
 });
 
-interface CandlestickData {
-  x: string;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-}
-
-interface LineChartData {
-  labels: string[];
-  data: number[];
-}
-
-interface BarChartData {
-  labels: string[];
-  data: number[];
-}
-
-interface PieChartData {
-  labels: string[];
-  data: number[];
-}
-
-interface ChartData {
-  candlestick: CandlestickData[] | null;
-  line: LineChartData | null;
-  bar: BarChartData | null;
-  pie: PieChartData | null;
-}
-
-
 export default function Dashboard() {
-  const [chartData, setChartData] = useState<ChartData>({
-    candlestick: null,
-    line: null,
-    bar: null,
-    pie: null,
-  });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const { chartData, loading, error } = useSelector((state: RootState) => state.chart);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [candlestick, line, bar, pie] = await Promise.all([
-          axios.get('/api/candlestick-data'),
-          axios.get('/api/line-chart-data'),
-          axios.get('/api/bar-chart-data'),
-          axios.get('/api/pie-chart-data'),
-        ]);
-
-        setChartData({
-          candlestick: candlestick.data.data, // Directly assign array
-          line: {
-            labels: line.data.labels,
-            data: line.data.data,
-          },
-          bar: {
-            labels: bar.data.labels,
-            data: bar.data.data,
-          },
-          pie: {
-            labels: pie.data.labels,
-            data: pie.data.data,
-          },
-        });
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setError('Failed to fetch chart data. Please try again later.');
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+    dispatch(fetchChartData());
+  }, [dispatch]);
 
   if (loading) return <div className="text-center mt-8">Loading...</div>;
   if (error) return <div className="text-center mt-8 text-red-500">{error}</div>;
