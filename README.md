@@ -15,23 +15,14 @@ Before getting started, ensure that you have the following installed:
 
 ## Getting Started
 
-### 1. Setting up Backend
+### To run the Project Using Docker
 
+Have docker installed on your machine.
 ```bash
-cd chart-backend
-pip install -r requirements.txt
-python manage.py runserver
-``` 
 
-### 2. Setting up Frontend
+docker-compose up --build
 
-```bash
-cd dashboard-frontend
-cd frontend
-npm install
-npm run build
-npm run start
-``` 
+```
 ## Brief Explanation of the Approach and Thought Process
 
 ### 1. Project Structure and Architecture
