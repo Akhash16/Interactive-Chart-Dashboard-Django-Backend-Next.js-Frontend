@@ -23,6 +23,7 @@ Have docker installed on your machine.
 docker-compose up --build
 
 ```
+Then open up ```http:\\localhost:3000``` on your browser
 ## Brief Explanation of the Approach and Thought Process
 
 ### 1. Project Structure and Architecture
