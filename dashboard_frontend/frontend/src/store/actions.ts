@@ -29,7 +29,7 @@ export const fetchChartData = createAsyncThunk<ChartData, void>(
         },
       };
     } catch (error) {
-      return rejectWithValue('Failed to fetch chart data. Please try again later.');
+      return rejectWithValue('Failed to fetch chart data. Please try again later.(mew)');
     }
   }
 );

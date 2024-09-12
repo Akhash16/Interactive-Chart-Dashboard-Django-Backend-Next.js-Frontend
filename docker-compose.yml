@@ -4,15 +4,29 @@ services:
   frontend:
     build:
       context: ./dashboard_frontend/frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    networks:
+    - app-network
     depends_on:
       - backend
+    # environment:
+    #   NEXT_PUBLIC_API_URL: http://localhost:8000  # Backend API URL
 
   backend:
     build:
       context: ./chart_backend
+      dockerfile: Dockerfile
+    # volumes:
+    #   - ./backend:/app
     ports:
       - "8000:8000"
-    environment:
-      - DEBUG=1  # Enable Django debugging
+    networks:
+    - app-network
+    # environment:
+    #   DJANGO_SETTINGS_MODULE: myproject.settings
+
+networks:
+  app-network:
+    driver: bridge
