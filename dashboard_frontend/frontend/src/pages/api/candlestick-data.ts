@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    console.log('Fetching candlestick data');
     const response = await axios.get('http://backend:8000/api/candlestick-data/');
     res.status(200).json(response.data);
   } catch (error) {
