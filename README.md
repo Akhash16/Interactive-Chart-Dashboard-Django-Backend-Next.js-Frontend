@@ -1,6 +1,8 @@
 # Chart Application
+![Webpage preview](dashboard_preview.png "Chart Dashboard")
 
 This Project contains a Django backend and a Next.js frontend. Follow the instructions below to set up and run both the backend and frontend locally.
+
 
 ## Prerequisites
 
